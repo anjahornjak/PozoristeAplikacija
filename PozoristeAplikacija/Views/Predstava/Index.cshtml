@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Predstava>
+@{
+    ViewData["Title"] = "Predstave";
+}
+<meta charset="UTF-8">
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Predstave</h1>
+    </div>
+</section>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="@item.Fotografija" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Naziv</h5>
+                            <p class="card-text">@item.Opis</p>
+                            <p class="card-text">Tekst: @item.Tekst</p>
+                            <p class="card-text">Režija: @item.Rezija</p>
+                            <p class="card-text">Trajanje:  @item.Trajanje</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a type="button" class="btn btn-success" asp-controller="Predstava" asp-action="Detail" asp-route-id="@item.Id">Pozorište</a>
+                                    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                                    {
+                                        <a type="button" class="btn btn-success" asp-controller="Predstava" asp-action="Edit" asp-route-id="@item.Id">Izmeni</a>
+                                        <a type="button" class="btn btn-success" asp-controller="Predstava" asp-action="Delete" asp-route-id="@item.Id">Izbriši</a>
+                                    }
+                                </div>
+                                <small class="text-muted">@item.VrstaPredstave</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,44 @@
+﻿@model Pozoriste
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Da li ste sigurni da želite da obrišete pozorište?</h1>
+
+<form method="post" asp-action="Delete" enctype="multipart/form-data">
+    <input type="hidden" value="AddressId" id="AddressId" />
+    <div class="form-group">
+        <label asp-for="Naziv">Naziv</label>
+        <input asp-for="Naziv" class="form-control" placeholder="Naziv">
+        <span asp-validation-for="Naziv" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Opis">Opis</label>
+        <input asp-for="Opis" class="form-control" placeholder="Opis">
+        <span asp-validation-for="Opis" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Adresa.Ulica">Ulica</label>
+        <input asp-for="Adresa.Ulica" class="form-control" placeholder="Ulica">
+        <span asp-validation-for="Adresa.Ulica" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Adresa.Grad">Grad</label>
+        <input asp-for="Adresa.Grad" class="form-control" placeholder="Grad">
+        <span asp-validation-for="Adresa.Grad" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Fotografija">Fotografija</label>
+        <input asp-for="Fotografija" type="file" class="form-control" placeholder="Fotografija">
+        <span asp-validation-for="Fotografija" class="text-danger"></span>
+
+    </div>
+</form>
+<div class="form-group">
+    <form action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Potvrdi" class="btn btn-danger float-right mt-3" />
+    </form>
+</div>

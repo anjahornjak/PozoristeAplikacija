@@ -1,0 +1,38 @@
+﻿@using PozoristeAplikacija.ViewModel
+@model EditPozoristeViewModel
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form method="post" asp-action="Edit" enctype="multipart/form-data">
+    <input type="hidden" value="AddressId" id="AddressId" />
+    <div class="form-group">
+        <label asp-for="Naziv">Naziv</label>
+        <input asp-for="Naziv" class="form-control" placeholder="Unesite naziv">
+        <span asp-validation-for="Naziv" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Opis">Opis</label>
+        <input asp-for="Opis" class="form-control" placeholder="Unesite opis">
+        <span asp-validation-for="Opis" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Adresa.Ulica">Ulica</label>
+        <input asp-for="Adresa.Ulica" class="form-control" placeholder="Unesite ulicu">
+        <span asp-validation-for="Adresa.Ulica" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Adresa.Grad">Grad</label>
+        <input asp-for="Adresa.Grad" class="form-control" placeholder="Grad">
+        <span asp-validation-for="Adresa.Grad" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Fotografija">Fotografija</label>
+        <input asp-for="Fotografija" type="file" class="form-control" placeholder="Fotografija">
+        <span asp-validation-for="Fotografija" class="text-danger"></span>
+
+    </div>
+    <button type="potvrdi" class="btn btn-primary">Potvrdi</button>
+</form>

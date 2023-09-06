@@ -1,0 +1,117 @@
+﻿@using PozoristeAplikacija.ViewModel
+@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .section-intro {
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1.display-3 {
+            color: #333;
+            font-size: 2.5rem;
+        }
+
+        .lead {
+            color: #666;
+            font-size: 1.25rem;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+            .feature-list li {
+                margin-bottom: 20px;
+            }
+
+        .card {
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        .card-text {
+            color: #777;
+        }
+   
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-12 col-md-6 col-lg-5 section-intro">
+                <h1 class="display-3">Saznaj sve o svojim omiljenim predstavama</h1>
+                <p class="lead">
+                    Društvena mreža za sve ljubitelje pozorišta! Poveži se sa ljudima istih interesovanja!
+                </p>
+            </div>
+        </div>
+        <div>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            @if (Model.Pozorista == null)
+            {
+                <h1 class="fw-light">
+                    Ne postoje pozoriša blizu tebe! Uloguj se i unesi pozorište!
+                </h1>
+            }
+            else
+            {
+                <div class="row justify-content-between mb-5">
+                    <div class="col-auto">
+                        <h3>Pozorišta blizu @Model.Grad</h3>
+                    </div>
+                </div>
+                <ul class="row feature-list feature-list-sm">
+                    @foreach (var item in Model.Pozorista)
+                    {
+                        <li class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <a href="#">
+                                    <img class="card-img-top" src="@item.Fotografija" alt="Card image cap">
+                                </a>
+                                <div class="card-body">
+                                    <a href="#">
+                                        <h4 class="card-title">@item.Naziv</h4>
+                                        <p class="card-text text-body">@item.Opis</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            }
+        </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

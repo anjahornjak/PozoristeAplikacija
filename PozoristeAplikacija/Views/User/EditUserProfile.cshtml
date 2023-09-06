@@ -1,0 +1,31 @@
+﻿﻿@using PozoristeAplikacija.ViewModel
+@model EditUserDashboardViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form method="post" asp-action="EditUserProfile" enctype="multipart/form-data">
+<input type "hidden" id="Id" asp-for="Id" /> 
+<div class="form group">
+    <label asp-for="Ime">Ime</label>
+    <input asp-for="Ime" class="form-control" placeholder="Ime">
+    <span asp-validation-for="Ime" class="text-danger"></span>
+</div>
+<div class="form group">
+    <label asp-for="Prezime">Prezime</label>
+    <input asp-for="Prezime" class="form-control" placeholder="Prezime">
+    <span asp-validation-for="Prezime" class="text-danger"></span>
+</div>
+<div class="form group">
+    <label asp-for="Grad">Grad</label>
+    <input asp-for="Grad" class="form-control" placeholder="Grad">
+    <span asp-validation-for="Grad" class="text-danger"></span>
+</div>
+<div class="form group">
+    <label asp-for="Fotografija">Profile Image</label>
+    <input asp-for="Fotografija" type="file" class="form-control" placeholder="Fotografija">
+    <span asp-validation-for="Fotografija" class="text-danger"></span>
+</div>
+    <button type="submit" class="btn btn-primary">Potvrdi</button>
+</form>
